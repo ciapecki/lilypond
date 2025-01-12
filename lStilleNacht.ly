@@ -1,10 +1,16 @@
 \version "2.18.2"
 
+\header {
+  title = "Stille Nacht"
+  %composer = "J. S. Bach."
+}
+
+
 trebleNotesOne = {
-    \new Staff
-    \relative c'' {
+    %\new Staff
+    %\relative c'' {
       \time 6/8
-      \clef treble
+      %\clef treble
       \key g \major
       \set Score.finalFineTextVisibility = ##t
 
@@ -12,13 +18,20 @@ trebleNotesOne = {
       e4 e8 g8. (fis16 e8)|d8. (e16 d8) b4.| e4 e8 g8. (fis16 e8)|d8. (e16 d8) b4.\break
       a'4 a8 c8. a16 fis8|g4. b4.|g8.(d16 b8) d8.(c16 a8)| g4. (g4) r8|
 
-    }
+    %}
 }
 
 theMusic = {
-    \new GrandStaff
+    \new Staff
         <<
+            \relative c''
             \trebleNotesOne
+
+      % Guitar tablature staff
+      \new TabStaff { 
+        \relative c'
+        \trebleNotesOne
+      }
         >>
 }
 
